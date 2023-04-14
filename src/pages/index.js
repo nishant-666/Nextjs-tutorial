@@ -7,12 +7,12 @@ export default function Home() {
   const [id, setId] = useState("");
   const [user, setUser] = useState([]);
   const getUsers = async () => {
-    let response = await fetch("/api/users");
+    let response = await fetch("/api/users/1");
     setUser(await response.json());
   };
 
   const postUsers = async () => {
-    fetch("/api/users", {
+    fetch("/api/users/1", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,13 +36,12 @@ export default function Home() {
   };
 
   const updateUser = () => {
-    fetch("/api/users", {
+    fetch(`/api/users/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        id,
         name,
         age,
       }),
@@ -52,14 +51,11 @@ export default function Home() {
   };
 
   const deleteUser = (id) => {
-    fetch("/api/users", {
+    fetch(`/api/users/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        id,
-      }),
     }).then(() => {
       getUsers();
     });

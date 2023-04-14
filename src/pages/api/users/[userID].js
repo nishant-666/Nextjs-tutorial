@@ -16,7 +16,7 @@ export default function users(req, res) {
     data.push(user);
     res.status(201).json(user);
   } else if (req.method === "DELETE") {
-    let id = req.body.id;
+    let { id } = req.query;
 
     let indexToDelete = data.findIndex((user) => user.id === id);
     data.splice(indexToDelete, 1);
@@ -24,7 +24,7 @@ export default function users(req, res) {
     let userToDelete = data.find((user) => user.id === id);
     res.status(200).json(userToDelete);
   } else if (req.method === "PUT") {
-    let id = req.body.id;
+    let { id } = req.query;
     let name = req.body.name;
     let age = req.body.age;
 
