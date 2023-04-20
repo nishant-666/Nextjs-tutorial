@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import styles from "@/styles/Profile.module.css";
 
 export default function Profile() {
   return (
@@ -11,7 +12,7 @@ export default function Profile() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h2>This is the Profile Page!</h2>
+        <h1 className={styles.heading}>This is the Profile Page!</h1>
 
         <Link href={"/"}>
           <p>Go to the Home Page!</p>
