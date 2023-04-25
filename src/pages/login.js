@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
+import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function Login() {
   return (
     <>
       <Head>
@@ -11,8 +12,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>HOME PAGE!!!!!</h1>
+        <h1>LOGIN PAGE!!!!!</h1>
       </div>
     </>
   );
 }
+
+Login.getLayout = function PageLayout(page) {
+  return <>{page}</>;
+};
